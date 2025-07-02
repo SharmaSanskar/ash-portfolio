@@ -64,7 +64,7 @@ export const projects: Project[] = [
   {
     "id": "cbma-content",
     "title": "Canada Black Music Archives: Content Concept Deck",
-    "coverMedia": "https://res.cloudinary.com/dvqym2xja/image/upload/v1751479106/cbma-content_xe3w6r.png",
+    "coverMedia": "https://res.cloudinary.com/dvqym2xja/image/upload/v1751479107/we-will-lead-africa_kt43m7.png",
     "description": "Visual content deck for preserving and promoting Black musical history",
     "overview": "At Northeastern, I worked on a content design project for the Canada Black Music Archives (CBMA), an emerging archive based in Toronto dedicated to preserving Black musical history. The organization partnered with our class to help shape a fresh, flexible content deck for social and digital use.",
     "designApproach": "Working within a strict brand kit, I explored layered overlays, textured backgrounds, and bold text treatments to bring energy and rhythm to the visual language. Many of the graphics incorporated music elements—vinyls, waveforms, and vintage mic silhouettes—with a retro jazz-inspired vibe running through the entire deck. The goal was to blend cultural reverence with a scroll-stopping aesthetic built for today's digital space.",
@@ -79,7 +79,7 @@ export const projects: Project[] = [
   {
     "id": "we-will-lead-africa",
     "title": "We Will Lead Africa: Digital Design for Global Visibility",
-    "coverMedia": "https://res.cloudinary.com/dvqym2xja/image/upload/v1751479107/we-will-lead-africa_kt43m7.png",
+    "coverMedia": "https://res.cloudinary.com/dvqym2xja/image/upload/v1751479106/cbma-content_xe3w6r.png",
     "description": "Social graphics championing Black leadership across Africa and the diaspora",
     "overview": "As part of a class project for my Digital Marketing course at Northeastern, I created social graphics for We Will Lead Africa, an organization that champions Black leadership across the continent and diaspora.",
     "designApproach": "These designs put faces front and center. Using bold, modern typography and a color palette inspired by African heritage, I aimed to give the movement a global-ready visual identity. Text became the bridge between culture and contemporary impact—making space for strong voices to shine, while drawing in international audiences with design that demands attention.",

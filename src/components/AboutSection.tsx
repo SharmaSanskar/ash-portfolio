@@ -135,7 +135,7 @@ export default function AboutSection() {
                   {/* Tall main image on the left */}
                   <div className="col-span-2 sm:col-span-3 row-span-2 relative">
                     <Image
-                      src="/images/me/me-1.jpg"
+                      src="/images/me/me-4.jpg"
                       alt="ashmika main"
                       fill
                       className="object-cover"
@@ -146,7 +146,7 @@ export default function AboutSection() {
                   {/* Top right image */}
                   <div className="col-span-2 sm:col-span-3 row-span-1 relative">
                     <Image
-                      src="/images/me/me-4.jpg"
+                      src="/images/me/me-1.jpg"
                       alt="ashmika secondary"
                       fill
                       className="object-cover"

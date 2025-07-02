@@ -153,10 +153,10 @@ export default function WorkSection() {
           <div className="absolute inset-0 bg-emerald-950/80 group-hover:bg-emerald-950/90 transition-colors duration-300" />
           <div className="absolute inset-0 flex flex-col items-center justify-center p-6 sm:p-8 text-center">
             <h3 className="text-white text-2xl sm:text-3xl lg:text-4xl font-semibold transform group-hover:scale-105 transition-transform duration-300 drop-shadow-lg mb-3 sm:mb-4">
-              Writing Samples
+              Pieces I&apos;ve Written
             </h3>
             <p className="text-white/90 text-sm sm:text-base lg:text-lg leading-relaxed max-w-4xl transform group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
-              My writing style sits somewhere between journalistic precision and poetic rhythm. Whether it&apos;s a press release or a personal essay, I lead with clarity, emotion, and a touch of literary flair. Expect smart structure, a strong voice, and stories that feel personal—even in the professional world.
+            My writing is clear, structured, and always thinking about the person reading it. Whether it&apos;s something emotional or something complex, I break it down without dumbing it down. I&apos;m big on flow, strong on voice, and never afraid to say things simply when simple works best.
             </p>
           </div>
           <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
