@@ -138,7 +138,7 @@ export default function AboutSection() {
                       src="/images/me/me-1.jpg"
                       alt="ashmika main"
                       fill
-                      className="object-cover rounded-lg"
+                      className="object-cover"
                       priority
                     />
                   </div>
@@ -149,7 +149,7 @@ export default function AboutSection() {
                       src="/images/me/me-4.jpg"
                       alt="ashmika secondary"
                       fill
-                      className="object-cover rounded-lg"
+                      className="object-cover"
                     />
                   </div>
                   
@@ -159,7 +159,7 @@ export default function AboutSection() {
                       src="/images/me/me-3.jpg"
                       alt="ashmika fourth"
                       fill
-                      className="object-cover rounded-lg"
+                      className="object-cover"
                     />
                   </div>
                   
@@ -169,7 +169,7 @@ export default function AboutSection() {
                       src="/images/me/me-2.jpg"
                       alt="ashmika tertiary"
                       fill
-                      className="object-cover rounded-lg"
+                      className="object-cover"
                     />
                   </div>
                 </div>

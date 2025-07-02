@@ -64,7 +64,7 @@ export default function WorkSection() {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={`${gridClasses[index]} relative group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-[1.02] rounded-lg`}
+              className={`${gridClasses[index]} relative group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-[1.02]`}
               onClick={() => handleProjectClick(project)}
               onMouseEnter={(e) => {
                 if (isVideo(project.coverMedia)) {
@@ -139,7 +139,7 @@ export default function WorkSection() {
 
         {/* Writing Samples Box */}
         <div 
-          className="w-full h-48 sm:h-56 lg:h-64 relative group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-[1.02] rounded-lg"
+          className="w-full h-48 sm:h-56 lg:h-64 relative group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-[1.02]"
           onClick={handleWritingSamplesClick}
         >
           <div className="absolute inset-0 overflow-hidden">

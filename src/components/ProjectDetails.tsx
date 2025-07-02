@@ -76,7 +76,7 @@ export default function ProjectDetails({
         </DialogHeader>
 
         <div className="space-y-4 sm:space-y-6">
-          <div className="relative w-full rounded-lg overflow-hidden bg-light-accent/10">
+          <div className="relative w-full overflow-hidden bg-light-accent/10">
             {isVideo(project.coverMedia) ? (
               <video
                 className="w-full h-auto"
