@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -41,7 +41,7 @@ const NestedScrollAnimation: React.FC<NestedScrollAnimationProps> = ({
   const defaultOptions = {
     scrub: true,
     start: "top top",
-    end: "+=300%", // Extended for transition
+    end: "+=300%",
     pinSpacing: true,
     textRevealOffset: -0.05,
     imageShrinkBase: 0.4,
@@ -54,57 +54,70 @@ const NestedScrollAnimation: React.FC<NestedScrollAnimationProps> = ({
   const imagesRef = useRef<HTMLDivElement[]>([]);
   const textRef = useRef<HTMLDivElement>(null);
   const wordRefs = useRef<HTMLSpanElement[]>([]);
-  const animationInitialized = useRef(false);
+  const animationCompleted = useRef(false);
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
   const words = [...revealText.split(" "), ":))"];
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (animationInitialized.current) return;
-    animationInitialized.current = true;
+  const initAnimation = useCallback(() => {
+    if (typeof window === "undefined" || !containerRef.current) return;
+    
+    // Clear any existing ScrollTrigger
+    if (scrollTriggerRef.current) {
+      scrollTriggerRef.current.kill();
+      scrollTriggerRef.current = null;
+    }
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: config.start,
-          end: config.end,
-          scrub: config.scrub,
-          pin: true,
-          pinSpacing: config.pinSpacing,
-          onUpdate: (self) => {
-            // Trigger callback when animation is near completion
-            if (self.progress > 0.85 && onAnimationComplete) {
-              onAnimationComplete();
-            }
-          },
+      const tl = gsap.timeline();
+
+      // Create ScrollTrigger and store reference
+      scrollTriggerRef.current = ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: config.start,
+        end: config.end,
+        scrub: config.scrub,
+        pin: true,
+        pinSpacing: config.pinSpacing,
+        animation: tl,
+        onUpdate: (self) => {
+          // Trigger callback when animation is near completion
+          if (self.progress > 0.85 && onAnimationComplete && !animationCompleted.current) {
+            animationCompleted.current = true;
+            onAnimationComplete();
+          }
         },
+        invalidateOnRefresh: true,
       });
 
       // Initial image setup
       imagesRef.current.forEach((img) => {
-        gsap.set(img, {
-          scale: 1,
-          transformOrigin: "center center",
-        });
+        if (img) {
+          gsap.set(img, {
+            scale: 1,
+            transformOrigin: "center center",
+          });
+        }
       });
 
       // Shrink all images together at different rates
       imagesRef.current.forEach((img, i) => {
-        const duration = 0.8 + i * 0.3;
-        tl.to(
-          img,
-          {
-            scale: 0,
-            ease: "power3.in",
-            duration: duration,
-          },
-          0
-        );
+        if (img) {
+          const duration = 0.8 + i * 0.3;
+          tl.to(
+            img,
+            {
+              scale: 0,
+              ease: "power3.in",
+              duration: duration,
+            },
+            0
+          );
+        }
       });
 
       // Text initial state
-      gsap.set(wordRefs.current, { opacity: 0, y: 20 });
+      gsap.set(wordRefs.current.filter(Boolean), { opacity: 0, y: 20 });
       gsap.set(textRef.current, {
         fontSize: "clamp(2rem, 8vw, 8rem)",
         x: "0%",
@@ -112,25 +125,25 @@ const NestedScrollAnimation: React.FC<NestedScrollAnimationProps> = ({
       });
 
       // Reveal text
-      const textStart =
-        1.5 + (images.length - 1) * 0.2 + config.textRevealOffset;
+      const textStart = 1.5 + (images.length - 1) * 0.2 + config.textRevealOffset;
 
       wordRefs.current.forEach((word, index) => {
-        tl.to(
-          word,
-          {
-            opacity: 1,
-            y: 0,
-            ease: "power3.out",
-            duration: 0.3,
-          },
-          textStart + index * config.staggerDelay
-        );
+        if (word) {
+          tl.to(
+            word,
+            {
+              opacity: 1,
+              y: 0,
+              ease: "power3.out",
+              duration: 0.3,
+            },
+            textStart + index * config.staggerDelay
+          );
+        }
       });
 
       // Transition text to top-left position
-      const transitionStart =
-        textStart + words.length * config.staggerDelay + 0.5;
+      const transitionStart = textStart + words.length * config.staggerDelay + 0.5;
 
       tl.to(
         textRef.current,
@@ -157,22 +170,27 @@ const NestedScrollAnimation: React.FC<NestedScrollAnimationProps> = ({
       );
     });
 
+    return ctx;
+  }, [images, words.length, config, onAnimationComplete]);
+
+  useEffect(() => {
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      const ctx = initAnimation();
+      return () => {
+        if (ctx) ctx.revert();
+      };
+    }, 100);
+
     return () => {
-      ctx.revert();
-      animationInitialized.current = false;
+      clearTimeout(timer);
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+        scrollTriggerRef.current = null;
+      }
+      animationCompleted.current = false;
     };
-  }, [
-    images,
-    revealText,
-    onAnimationComplete,
-    config.start,
-    config.end,
-    config.scrub,
-    config.pinSpacing,
-    config.textRevealOffset,
-    config.staggerDelay,
-    words.length,
-  ]);
+  }, []); // Empty dependency array to run only once
 
   return (
     <div

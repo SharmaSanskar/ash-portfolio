@@ -41,14 +41,14 @@ export default function ProjectDetails({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-full max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="space-y-3">
+      <DialogContent className="w-full max-w-3xl mx-4 sm:mx-auto max-h-[90vh] overflow-y-auto">
+        <DialogHeader className="space-y-2 sm:space-y-3">
           <div className="flex items-start justify-between">
-            <div className="space-y-2">
-              <DialogTitle className="text-2xl font-bold text-dark-accent">
+            <div className="space-y-1 sm:space-y-2 flex-1 min-w-0">
+              <DialogTitle className="text-xl sm:text-2xl font-bold text-dark-accent">
                 {project.title}
               </DialogTitle>
-              <DialogDescription className="text-lg text-dark-text leading-tight">
+              <DialogDescription className="text-base sm:text-lg text-dark-text leading-tight">
                 {project.description}
               </DialogDescription>
             </div>
@@ -62,24 +62,24 @@ export default function ProjectDetails({
             </Button> */}
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
             {project.category && (
               <div className="flex items-center gap-1">
-                <Tag className="h-4 w-4" />
+                <Tag className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span>{project.category}</span>
               </div>
             )}
             {project.duration && (
               <div className="flex items-center gap-1">
-                <Calendar className="h-4 w-4" />
+                <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span>{project.duration}</span>
               </div>
             )}
           </div>
         </DialogHeader>
 
-        <div className="space-y-6">
-          <div className="relative w-full h-64 rounded-lg overflow-hidden bg-gray-100">
+        <div className="space-y-4 sm:space-y-6">
+          <div className="relative w-full h-48 sm:h-64 rounded-lg overflow-hidden bg-gray-100">
             <Image
               src={project.image}
               alt={project.title}
@@ -88,15 +88,15 @@ export default function ProjectDetails({
             />
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
             {project.liveUrl && (
-              <Button asChild className="flex items-center gap-2">
+              <Button asChild className="flex items-center gap-2 text-sm">
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <ExternalLink className="h-4 w-4" />
+                  <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
                   Live Demo
                 </a>
               </Button>
@@ -105,14 +105,14 @@ export default function ProjectDetails({
               <Button
                 variant="outline"
                 asChild
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 text-sm"
               >
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Github className="h-4 w-4" />
+                  <Github className="h-3 w-3 sm:h-4 sm:w-4" />
                   View Code
                 </a>
               </Button>
@@ -121,24 +121,24 @@ export default function ProjectDetails({
 
           <Separator />
 
-          <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-gray-900">
+          <div className="space-y-2 sm:space-y-3">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
               About the Project
             </h3>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
               {project.longDescription}
             </p>
           </div>
 
           <Separator />
 
-          <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-gray-900">
+          <div className="space-y-2 sm:space-y-3">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
               Technologies Used
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1 sm:gap-2">
               {project.technologies?.map((tech, index) => (
-                <Badge key={index} variant="secondary" className="px-3 py-1">
+                <Badge key={index} variant="secondary" className="px-2 py-1 text-xs sm:text-sm">
                   {tech}
                 </Badge>
               ))}
@@ -147,15 +147,15 @@ export default function ProjectDetails({
 
           <Separator />
 
-          <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-gray-900">
+          <div className="space-y-2 sm:space-y-3">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
               Key Features
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1 sm:space-y-2">
               {project.features?.map((feature, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">{feature}</span>
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm sm:text-base text-gray-700">{feature}</span>
                 </li>
               ))}
             </ul>

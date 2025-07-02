@@ -24,12 +24,25 @@ export default function AboutSection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const skills = [
-    "Design",
-    "Marketing",
-    "Canva",
-    "Yapping",
-    "Crying",
-    "Being cute",
+    "Curious",
+    "Empathetic",
+    "Organized",
+    "Collaborative",
+    "Observant",
+    "Adaptable",
+    "Creative",
+  ];
+
+  const marqueeSkills = [
+    "Social Media Strategy",
+    "Public Relations",
+    "Digital Content Creation",
+    "Brand Storytelling",
+    "Crisis Communication",
+    "Event Planning & Sponsorships",
+    "Campaign Development",
+    "Stakeholder Engagement",
+    "Digital Marketing",
   ];
 
   const handleAnimationComplete = () => {
@@ -83,13 +96,13 @@ export default function AboutSection() {
       <div className="relative">
         <NestedScrollAnimation
           images={[
-            { src: "/images/about-1.jpg", alt: "Image 1" },
-            { src: "/images/about-2.jpg", alt: "Image 1" },
-            { src: "/images/about-3.jpg", alt: "Image 1" },
-            { src: "/images/about-4.jpg", alt: "Image 1" },
-            { src: "/images/about-5.jpg", alt: "Image 1" },
-            { src: "/images/about-6.jpg", alt: "Image 1" },
-            { src: "/images/about-7.jpg", alt: "Image 1" },
+            { src: "/images/about/about-1.jpg", alt: "Image 1" },
+            { src: "/images/about/about-2.jpg", alt: "Image 1" },
+            { src: "/images/about/about-3.jpg", alt: "Image 1" },
+            { src: "/images/about/about-4.jpg", alt: "Image 1" },
+            { src: "/images/about/about-5.jpg", alt: "Image 1" },
+            { src: "/images/about/about-6.jpg", alt: "Image 1" },
+            { src: "/images/about/about-7.jpg", alt: "Image 1" },
           ]}
           revealText="This is me"
           onAnimationComplete={handleAnimationComplete}
@@ -102,54 +115,88 @@ export default function AboutSection() {
         className="relative"
         style={{ marginTop: "-100vh" }}
       >
-        <div className="min-h-screen py-20 mx-auto max-w-6xl px-8">
+        <div className="min-h-screen py-20 mx-auto max-w-6xl px-6">
           {/* Main content grid - no header since animated text serves as title */}
-          <div ref={contentRef} className="pt-20">
-            <div className="grid grid-cols-12 gap-8 items-start">
+          <div ref={contentRef} className="pt-16 sm:pt-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
               {/* First paragraph - larger, spans left side */}
-              <div className="col-span-7">
-                <p className="text-dark-text text-4xl/tight font-medium">
-                  I collaborate with businesses of all sizes worldwide, using
-                  the latest technologies. My designs have also earned multiple
-                  awards.
+              <div className="lg:col-span-7 order-1">
+                <p className="text-dark-text text-xl sm:text-2xl md:text-3xl lg:text-4xl/tight font-medium">
+                I&apos;m a communicator at heart and a visual thinker by instinct. Whether it&apos;s a press pitch, a social post, or a festival rollout, I mix clarity with creativity to spark real connection.
                 </p>
               </div>
 
-              {/* Empty space for layout */}
-              <div className="col-span-5"></div>
+              {/* Empty space for layout - only on desktop */}
+              <div className="lg:col-span-5 hidden lg:block"></div>
 
-              {/* Image - positioned slightly left of center */}
-              <div className="col-span-6 col-start-2">
-                <div className="relative h-[600px] w-full">
-                  <Image
-                    src="/images/ashmika-photo.jpg"
-                    alt="ashmika"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+              {/* Image Grid - mobile: full width, desktop: partial width */}
+              <div className="lg:col-span-5 lg:col-start-2 order-2 lg:order-3">
+                <div className="grid grid-cols-4 sm:grid-cols-6 grid-rows-2 sm:grid-rows-3 gap-2 sm:gap-3 h-[400px] sm:h-[500px] lg:h-[700px]">
+                  {/* Tall main image on the left */}
+                  <div className="col-span-2 sm:col-span-3 row-span-2 relative">
+                    <Image
+                      src="/images/me/me-1.jpg"
+                      alt="ashmika main"
+                      fill
+                      className="object-cover rounded-lg"
+                      priority
+                    />
+                  </div>
+                  
+                  {/* Top right image */}
+                  <div className="col-span-2 sm:col-span-3 row-span-1 relative">
+                    <Image
+                      src="/images/me/me-4.jpg"
+                      alt="ashmika secondary"
+                      fill
+                      className="object-cover rounded-lg"
+                    />
+                  </div>
+                  
+                  {/* Fourth photo - bottom left (only visible on sm+ screens) */}
+                  <div className="hidden sm:block col-span-2 row-span-1 relative">
+                    <Image
+                      src="/images/me/me-3.jpg"
+                      alt="ashmika fourth"
+                      fill
+                      className="object-cover rounded-lg"
+                    />
+                  </div>
+                  
+                  {/* Bottom right image */}
+                  <div className="col-span-2 sm:col-span-4 row-span-1 relative">
+                    <Image
+                      src="/images/me/me-2.jpg"
+                      alt="ashmika tertiary"
+                      fill
+                      className="object-cover rounded-lg"
+                    />
+                  </div>
                 </div>
               </div>
 
-              {/* Second paragraph - smaller text, to the right of image */}
-              <div className="col-span-5 col-start-8 flex items-center justify-center">
-                <div>
-                  <p className="text-xl/tight font-normal">
-                    I&apos;m dedicated to crafting beautiful and highly
-                    functional designs that seamlessly align with my
-                    clients&apos; unique needs and long-term goals.
+              {/* Gap column - only on desktop */}
+              <div className="lg:col-span-1 hidden lg:block"></div>
+
+              {/* Second paragraph and content - mobile: full width, desktop: right side */}
+              <div className="lg:col-span-5 lg:col-start-8 flex items-start justify-center order-3 lg:order-4">
+                <div className="w-full">
+                  <p className="text-base sm:text-lg leading-relaxed tracking-wide font-normal">
+                  With roots in history and a master&apos;s in corporate comms underway, I work where strategy meets storytelling. I&apos;ve led PR campaigns, managed events, built media kits, and written copy that carries emotional weight. I love moodboards and spreadsheets equally, and nothing satisfies me more than a ticked-off to-do list.
+                  <br /><br />
+                  Off the clock, I&apos;m reading, doomscrolling, trend chasing (currently scouting the best matcha spots in town), and hunting down the best bites in Boston. Mike&apos;s Pastry is hands down my favorite. I can also talk endlessly about F1, not just the racing, but the branding, fan culture, and marketing that powers it.
                   </p>
 
                   {/* Skills section - below second paragraph */}
-                  <div className="col-span-5 col-start-8 mt-8">
-                    <h3 className="text-dark-text text-sm font-bold mb-4 tracking-wider uppercase">
+                  <div className="mt-6 sm:mt-8">
+                    <h3 className="text-dark-text text-xs sm:text-sm font-bold mb-3 sm:mb-4 tracking-wider uppercase">
                       Soft Skills
                     </h3>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
                       {skills.map((skill, i) => (
                         <span
                           key={i}
-                          className="text-dark-text text-sm px-2 py-1 border border-dashed border-dark-text"
+                          className="text-dark-text text-xs sm:text-sm px-2 py-1 border border-dashed border-dark-text"
                         >
                           {skill}
                         </span>
@@ -158,8 +205,8 @@ export default function AboutSection() {
                   </div>
 
                   {/* Education section - below skills */}
-                  <div className="col-span-5 col-start-8 mt-8 z-50">
-                    <h3 className="text-dark-text text-sm font-bold mb-4 tracking-wider uppercase">
+                  <div className="mt-6 sm:mt-8 z-50">
+                    <h3 className="text-dark-text text-xs sm:text-sm font-bold mb-3 sm:mb-4 tracking-wider uppercase">
                       EDUCATION
                     </h3>
                     <Accordion type="single" collapsible className="w-full">
@@ -168,24 +215,24 @@ export default function AboutSection() {
                         className="border-b border-light-border"
                       >
                         <AccordionTrigger className="text-left hover:no-underline py-3">
-                          <div className="flex justify-between items-start w-full">
+                          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start w-full gap-1 sm:gap-0">
                             <div className="flex-1">
-                              <div className="font-semibold text-base/tight">
+                              <div className="font-semibold text-sm sm:text-base/tight">
                                 MS Corporate and Organizational Communication
                               </div>
-                              <div className="text-sm opacity-80 font-medium">
+                              <div className="text-xs sm:text-sm opacity-80 font-medium">
                                 Concentration: Public and Media Relations
                               </div>
-                              <div className="text-sm opacity-60 italic">
+                              <div className="text-xs sm:text-sm opacity-60 italic">
                                 Northeastern University, Boston
                               </div>
                             </div>
-                            <div className="text-xs opacity-60 font-medium">
+                            <div className="text-xs opacity-60 font-medium self-start sm:self-auto">
                               2024-2026
                             </div>
                           </div>
                         </AccordionTrigger>
-                        <AccordionContent className="text-sm pb-4">
+                        <AccordionContent className="text-xs sm:text-sm pb-4">
                           This graduate program focuses on strategic
                           communication within corporate and organizational
                           settings, with specialized training in public
@@ -202,21 +249,21 @@ export default function AboutSection() {
                         className="border-b border-gray-200"
                       >
                         <AccordionTrigger className="text-left hover:no-underline py-3">
-                          <div className="flex justify-between items-start w-full">
+                          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start w-full gap-1 sm:gap-0">
                             <div className="flex-1">
-                              <div className="font-semibold text-dark-text text-base">
+                              <div className="font-semibold text-dark-text text-sm sm:text-base">
                                 Bachelor of Arts in English and History
                               </div>
-                              <div className="text-sm opacity-60 italic">
+                              <div className="text-xs sm:text-sm opacity-60 italic">
                                 Sophia College, Mumbai, India
                               </div>
                             </div>
-                            <div className="text-xs opacity-60 font-medium">
+                            <div className="text-xs opacity-60 font-medium self-start sm:self-auto">
                               2021-2024
                             </div>
                           </div>
                         </AccordionTrigger>
-                        <AccordionContent className="text-sm pb-4">
+                        <AccordionContent className="text-xs sm:text-sm pb-4">
                           A comprehensive undergraduate program combining
                           literary studies and historical analysis. This
                           interdisciplinary degree provided strong foundations
@@ -235,7 +282,9 @@ export default function AboutSection() {
         </div>
       </div>
 
-      <AboutMarquee />
+      {/* Marquee sections */}
+      <AboutMarquee skills={marqueeSkills} direction="left" duration={420} />
+      <AboutMarquee skills={marqueeSkills} direction="right" duration={420} />
     </div>
   );
 }

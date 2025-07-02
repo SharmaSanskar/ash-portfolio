@@ -1,164 +1,106 @@
 {
   "projects": [
     {
-      "id": "cryptoplace",
-      "title": "CryptoPlace",
-      "image": "/images/demo.jpg",
-      "description": "A comprehensive cryptocurrency tracking and portfolio management platform with real-time market data and advanced analytics.",
-      "longDescription": "CryptoPlace is a full-stack web application that provides users with comprehensive cryptocurrency market insights. The platform features real-time price tracking, portfolio management, technical analysis tools, and market sentiment indicators. Built with modern web technologies, it offers a seamless user experience for both novice and experienced crypto traders.",
-      "technologies": [
-        "React",
-        "Node.js",
-        "MongoDB",
-        "Socket.io",
-        "Chart.js",
-        "TailwindCSS"
-      ],
+      "id": "sophia-college-pr",
+      "title": "Sophia College PR & Social Design",
+      "image": "/images/projects/sophia-college.jpg",
+      "size": "col-span-6 row-span-1",
+      "description": "Internal communications design and social media strategy for Sophia College",
+      "longDescription": "As Head of PR at Sophia College (May 2023 – April 2024), I led the design and rollout of internal communications assets, including posters, email visuals, and Instagram content. This work was part of a broader strategy to keep students informed, engaged, and excited about campus events. My goal was to make information instantly clear while keeping the visuals chic and student-friendly. Most of the graphics leaned into a minimal, feminine aesthetic—centered around Sophia's signature peach and green, with splashes of beige and brown tones.",
+      "category": "Brand Design & Social Media",
+      "duration": "11 months",
+      "technologies": ["Adobe Creative Suite", "Canva", "Instagram", "Brand Design"],
       "features": [
-        "Real-time cryptocurrency price tracking",
-        "Portfolio management and performance analytics",
-        "Interactive price charts with technical indicators",
-        "Market sentiment analysis",
-        "News aggregation from multiple sources",
-        "Price alerts and notifications"
-      ],
-      "githubUrl": "https://github.com/yourusername/cryptoplace",
-      "liveUrl": "https://cryptoplace-demo.com",
-      "category": "Web Application",
+        "Minimal, feminine aesthetic design system",
+        "Campus event promotion materials",
+        "Student-focused visual communication",
+        "Social media content with trending audios"
+      ]
+    },
+    {
+      "id": "offsuit-boston",
+      "title": "Offsuit Boston: Speakeasy Social Media Concept",
+      "image": "/images/projects/offsuit-boston.jpg",
+      "size": "col-span-6 row-span-1",
+      "description": "Dark, moody social media concept for a hidden speakeasy behind a downtown coffee shop",
+      "longDescription": "At Northeastern, I created a social media concept for Offsuit Boston, a hidden speakeasy tucked behind a downtown coffee shop. The brief was to choose an existing business and develop content that captured its brand essence while appealing to potential customers. I leaned into a dark, moody aesthetic to reflect Offsuit's intimate and elusive vibe. The graphics featured cocktail details, bar textures, and shadowy lighting—evoking the speakeasy mystique while still drawing intrigue.",
+      "category": "Social Media Strategy",
+      "duration": "1 month",
+      "technologies": ["Social Media Design", "Brand Conceptualization", "Visual Storytelling"],
+      "features": [
+        "Dark, moody aesthetic design",
+        "Cocktail-focused visual content",
+        "Mysterious and alluring brand tone",
+        "Speakeasy atmosphere capture"
+      ]
+    },
+    {
+      "id": "campus-flyers",
+      "title": "Campus Flyers & Poster Design",
+      "image": "/images/projects/campus-flyers.jpg",
+      "size": "col-span-2 row-span-2",
+      "description": "Collection of event posters and promotional materials for campus activities",
+      "longDescription": "Across my undergrad extracurriculars and now at Northeastern through class projects, I've built a collection of posters and flyers designed for events, awareness campaigns, and campus activations. These range from last-minute club promotions to structured assignment deliverables. Each piece was shaped by its purpose—some loud and playful, others clean and informative. I focused on clarity with character, using bold type, intuitive layouts, and color choices that matched tone and audience.",
+      "category": "Print & Digital Design",
+      "duration": "Ongoing",
+      "technologies": ["Print Design", "Typography", "Layout Design", "Adobe Creative Suite"],
+      "features": [
+        "Bold typography and layouts",
+        "Audience-specific design approaches",
+        "Event promotion materials",
+        "Clear message communication"
+      ]
+    },
+    {
+      "id": "cbma-content",
+      "title": "Canada Black Music Archives: Content Concept Deck",
+      "image": "/images/projects/cbma-content.jpg",
+      "size": "col-span-2 row-span-2",
+      "description": "Visual content deck for preserving and promoting Black musical history",
+      "longDescription": "At Northeastern, I worked on a content design project for the Canada Black Music Archives (CBMA), an emerging archive based in Toronto dedicated to preserving Black musical history. The organization partnered with our class to help shape a fresh, flexible content deck for social and digital use. Working within a strict brand kit, I explored layered overlays, textured backgrounds, and bold text treatments to bring energy and rhythm to the visual language. Many of the graphics incorporated music elements—vinyls, waveforms, and vintage mic silhouettes—with a retro jazz-inspired vibe running through the entire deck.",
+      "category": "Cultural Heritage Design",
       "duration": "3 months",
-      "size": "col-span-2 row-span-1"
+      "technologies": ["Brand Guidelines", "Social Media Design", "Cultural Design", "Digital Content"],
+      "features": [
+        "Retro jazz-inspired visual language",
+        "Music element incorporation",
+        "Cultural reverence with modern appeal",
+        "Flexible content deck system"
+      ]
     },
     {
-      "id": "gradhelp",
-      "title": "GradHelp",
-      "image": "/images/demo.jpg",
-      "description": "An AI-powered platform connecting graduate students with mentors and resources for academic success.",
-      "longDescription": "GradHelp is an innovative platform designed to support graduate students throughout their academic journey. The application uses machine learning algorithms to match students with compatible mentors, provides personalized study resources, and offers collaborative tools for research projects. The platform has helped over 1,000 graduate students improve their academic performance and networking opportunities.",
-      "technologies": [
-        "Next.js",
-        "Python",
-        "Django",
-        "PostgreSQL",
-        "OpenAI API",
-        "Redis"
-      ],
+      "id": "short-form-video",
+      "title": "Short-Form Video & Reels Collection",
+      "image": "/images/projects/short-form-video.jpg",
+      "size": "col-span-2 row-span-1",
+      "description": "Curated collection of Instagram reels and short-form video content",
+      "longDescription": "This is a curated set of short-form videos and reels made for Instagram-first audiences. Most are quick, punchy edits crafted with trending audios, timed transitions, and visuals that hook scrollers fast. These videos are built to entertain, engage, and reflect the aesthetic of the brand they represent. I believe short-form video is where the scroll stops and connection begins. Whether it's a brand teaser or an event recap, I create videos that let the vibe speak before the caption does.",
+      "category": "Video Content Creation",
+      "duration": "Ongoing",
+      "technologies": ["Video Editing", "Instagram Reels", "Trending Audio Integration", "Visual Storytelling"],
       "features": [
-        "AI-powered mentor matching algorithm",
-        "Personalized learning resource recommendations",
-        "Collaborative research project tools",
-        "Progress tracking and analytics",
-        "Virtual study groups and forums",
-        "Academic calendar integration"
-      ],
-      "githubUrl": "https://github.com/yourusername/gradhelp",
-      "liveUrl": "https://gradhelp-platform.com",
-      "category": "EdTech Platform",
-      "duration": "6 months",
-      "size": "col-span-1 row-span-2"
+        "Trending audio integration",
+        "Scroll-stopping visual hooks",
+        "Brand-specific aesthetic adaptation",
+        "Quick, punchy editing style"
+      ]
     },
     {
-      "id": "fourie",
-      "title": "Fourie",
-      "image": "/images/demo.jpg",
-      "description": "A mathematical visualization tool for Fourier transforms and signal processing education.",
-      "longDescription": "Fourie is an interactive educational tool designed to help students and professionals understand Fourier transforms and signal processing concepts. The application provides real-time visualizations of mathematical functions, interactive demonstrations, and step-by-step explanations of complex mathematical operations.",
-      "technologies": ["React", "D3.js", "WebGL", "MathJax", "TypeScript"],
-      "features": [
-        "Interactive Fourier transform visualizations",
-        "Real-time signal processing demonstrations",
-        "Step-by-step mathematical explanations",
-        "Custom function input and analysis",
-        "Educational tutorials and exercises",
-        "Export capabilities for presentations"
-      ],
-      "githubUrl": "https://github.com/yourusername/fourie",
-      "liveUrl": "https://fourie-math.com",
-      "category": "Educational Tool",
+      "id": "we-will-lead-africa",
+      "title": "We Will Lead Africa: Digital Design for Global Visibility",
+      "image": "/images/projects/we-will-lead-africa.jpg",
+      "size": "col-span-2 row-span-2",
+      "description": "Social graphics championing Black leadership across Africa and the diaspora",
+      "longDescription": "As part of a class project for my Digital Marketing course at Northeastern, I created social graphics for We Will Lead Africa, an organization that champions Black leadership across the continent and diaspora. These designs put faces front and center. Using bold, modern typography and a color palette inspired by African heritage, I aimed to give the movement a global-ready visual identity. Text became the bridge between culture and contemporary impact—making space for strong voices to shine, while drawing in international audiences with design that demands attention.",
+      "category": "Global Movement Design",
       "duration": "2 months",
-      "size": "col-span-1 row-span-1"
-    },
-    {
-      "id": "concord",
-      "title": "Concord",
-      "image": "/images/demo.jpg",
-      "description": "A team collaboration platform with integrated project management and communication tools.",
-      "longDescription": "Concord is a comprehensive team collaboration platform that combines project management, real-time communication, and file sharing in one unified interface. The platform is designed to streamline workflows for remote and hybrid teams, featuring intuitive project boards, video conferencing, and advanced reporting capabilities.",
-      "technologies": [
-        "Vue.js",
-        "Express.js",
-        "MongoDB",
-        "Socket.io",
-        "WebRTC",
-        "AWS S3"
-      ],
+      "technologies": ["Social Media Design", "Global Branding", "Cultural Design", "Typography"],
       "features": [
-        "Real-time project collaboration boards",
-        "Integrated video conferencing",
-        "File sharing and version control",
-        "Team performance analytics",
-        "Customizable workflow automation",
-        "Mobile app synchronization"
-      ],
-      "githubUrl": "https://github.com/yourusername/concord",
-      "liveUrl": "https://concord-teams.com",
-      "category": "Collaboration Platform",
-      "duration": "4 months",
-      "size": "col-span-1 row-span-1"
-    },
-    {
-      "id": "f1-app",
-      "title": "F1 App",
-      "image": "/images/demo.jpg",
-      "description": "A comprehensive Formula 1 racing application with live timing, statistics, and fan engagement features.",
-      "longDescription": "The F1 App is a comprehensive mobile and web application for Formula 1 enthusiasts. It provides live race timing, detailed driver and constructor statistics, interactive circuit maps, and social features for fan engagement. The app integrates with official F1 APIs to deliver real-time race data and historical analytics.",
-      "technologies": [
-        "React Native",
-        "Node.js",
-        "GraphQL",
-        "PostgreSQL",
-        "Redis",
-        "F1 API"
-      ],
-      "features": [
-        "Live race timing and telemetry",
-        "Comprehensive driver and team statistics",
-        "Interactive circuit maps and analysis",
-        "Fantasy league integration",
-        "Social features and fan communities",
-        "Push notifications for race updates"
-      ],
-      "githubUrl": "https://github.com/yourusername/f1-app",
-      "liveUrl": "https://f1-racing-app.com",
-      "category": "Mobile Application",
-      "duration": "5 months",
-      "size": "col-span-2 row-span-1"
-    },
-    {
-      "id": "side-project",
-      "title": "Side Project",
-      "image": "/images/demo.jpg",
-      "description": "A personal productivity app with habit tracking, goal setting, and mindfulness features.",
-      "longDescription": "This personal productivity application combines habit tracking, goal setting, and mindfulness practices in a clean, intuitive interface. The app uses gamification principles to encourage consistent behavior and includes analytics to help users understand their productivity patterns and make informed improvements to their daily routines.",
-      "technologies": [
-        "Flutter",
-        "Firebase",
-        "Node.js",
-        "Chart.js",
-        "Push Notifications"
-      ],
-      "features": [
-        "Daily habit tracking with streaks",
-        "Goal setting and progress monitoring",
-        "Mindfulness and meditation timers",
-        "Productivity analytics and insights",
-        "Customizable reminders and notifications",
-        "Cross-platform synchronization"
-      ],
-      "githubUrl": "https://github.com/yourusername/productivity-app",
-      "liveUrl": "https://productivity-tracker.app",
-      "category": "Personal Productivity",
-      "duration": "2 months",
-      "size": "col-span-1 row-span-1"
+        "Bold, modern typography",
+        "African heritage-inspired color palette",
+        "Face-forward design approach",
+        "Global-ready visual identity"
+      ]
     }
   ]
 }
