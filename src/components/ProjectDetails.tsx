@@ -5,24 +5,22 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { ExternalLink, Github, Calendar, Tag, CheckCircle } from "lucide-react";
+import { ExternalLink, Github, Tag, CheckCircle } from "lucide-react";
 import Image from "next/image";
 
 // Optional: define a Project type
 type Project = {
   id: string;
   title: string;
-  image: string;
+  coverMedia: string;
   description?: string;
-  longDescription?: string;
+  overview?: string;
+  designApproach?: string;
   category?: string;
-  duration?: string;
   liveUrl?: string;
   githubUrl?: string;
-  technologies?: string[];
   features?: string[];
 };
 
@@ -39,16 +37,21 @@ export default function ProjectDetails({
 }: ProjectDetailsProps) {
   if (!project) return null;
 
+  // Helper function to check if media is video
+  const isVideo = (mediaPath: string) => {
+    return mediaPath.endsWith('.mp4') || mediaPath.endsWith('.mov') || mediaPath.endsWith('.webm');
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-full max-w-3xl mx-4 sm:mx-auto max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[95vw] max-w-sm sm:max-w-2xl lg:!max-w-6xl mx-auto max-h-[90vh] overflow-y-auto border-light-accent/20 p-6 sm:p-8 lg:p-10" style={{ backgroundColor: '#faedcd' }}>
         <DialogHeader className="space-y-2 sm:space-y-3">
           <div className="flex items-start justify-between">
-            <div className="space-y-1 sm:space-y-2 flex-1 min-w-0">
-              <DialogTitle className="text-xl sm:text-2xl font-bold text-dark-accent">
+            <div className="space-y-1 sm:space-y-2 flex-1 min-w-0 pr-2">
+              <DialogTitle className="text-lg sm:text-xl lg:text-2xl font-bold text-dark-accent leading-tight">
                 {project.title}
               </DialogTitle>
-              <DialogDescription className="text-base sm:text-lg text-dark-text leading-tight">
+              <DialogDescription className="text-sm sm:text-base lg:text-lg text-dark-text leading-tight">
                 {project.description}
               </DialogDescription>
             </div>
@@ -62,35 +65,45 @@ export default function ProjectDetails({
             </Button> */}
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-dark-text/70">
             {project.category && (
               <div className="flex items-center gap-1">
-                <Tag className="h-3 w-3 sm:h-4 sm:w-4" />
+                <Tag className="h-3 w-3 sm:h-4 sm:w-4 text-dark-accent" />
                 <span>{project.category}</span>
-              </div>
-            )}
-            {project.duration && (
-              <div className="flex items-center gap-1">
-                <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span>{project.duration}</span>
               </div>
             )}
           </div>
         </DialogHeader>
 
         <div className="space-y-4 sm:space-y-6">
-          <div className="relative w-full h-48 sm:h-64 rounded-lg overflow-hidden bg-gray-100">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover"
-            />
+          <div className="relative w-full rounded-lg overflow-hidden bg-light-accent/10">
+            {isVideo(project.coverMedia) ? (
+              <video
+                className="w-full h-auto"
+                controls
+                muted
+                playsInline
+              >
+                <source src={project.coverMedia} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <div className="relative w-full" style={{ aspectRatio: 'auto' }}>
+                <Image
+                  src={project.coverMedia}
+                  alt={project.title}
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-contain"
+                  style={{ maxHeight: '50vh' }}
+                />
+              </div>
+            )}
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+          <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
             {project.liveUrl && (
-              <Button asChild className="flex items-center gap-2 text-sm">
+              <Button asChild className="flex items-center justify-center gap-2 text-sm bg-dark-accent hover:bg-dark-accent/90 text-light-bg w-full sm:w-auto">
                 <a
                   href={project.liveUrl}
                   target="_blank"
@@ -105,7 +118,7 @@ export default function ProjectDetails({
               <Button
                 variant="outline"
                 asChild
-                className="flex items-center gap-2 text-sm"
+                className="flex items-center justify-center gap-2 text-sm border-dark-accent/20 text-dark-text hover:bg-dark-accent/5 w-full sm:w-auto"
               >
                 <a
                   href={project.githubUrl}
@@ -119,43 +132,47 @@ export default function ProjectDetails({
             )}
           </div>
 
-          <Separator />
+          <Separator className="bg-light-accent/20" />
+
+          {project.overview && (
+            <>
+              <div className="space-y-2 sm:space-y-3">
+                <h3 className="text-lg sm:text-xl font-semibold text-dark-accent">
+                  Overview
+                </h3>
+                <p className="text-sm sm:text-base text-dark-text leading-relaxed">
+                  {project.overview}
+                </p>
+              </div>
+
+              <Separator className="bg-light-accent/20" />
+            </>
+          )}
+
+          {project.designApproach && (
+            <>
+              <div className="space-y-2 sm:space-y-3">
+                <h3 className="text-lg sm:text-xl font-semibold text-dark-accent">
+                  Design Approach
+                </h3>
+                <p className="text-sm sm:text-base text-dark-text leading-relaxed">
+                  {project.designApproach}
+                </p>
+              </div>
+
+              <Separator className="bg-light-accent/20" />
+            </>
+          )}
 
           <div className="space-y-2 sm:space-y-3">
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
-              About the Project
-            </h3>
-            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-              {project.longDescription}
-            </p>
-          </div>
-
-          <Separator />
-
-          <div className="space-y-2 sm:space-y-3">
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
-              Technologies Used
-            </h3>
-            <div className="flex flex-wrap gap-1 sm:gap-2">
-              {project.technologies?.map((tech, index) => (
-                <Badge key={index} variant="secondary" className="px-2 py-1 text-xs sm:text-sm">
-                  {tech}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          <Separator />
-
-          <div className="space-y-2 sm:space-y-3">
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+            <h3 className="text-lg sm:text-xl font-semibold text-dark-accent">
               Key Features
             </h3>
             <ul className="space-y-1 sm:space-y-2">
               {project.features?.map((feature, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-700">{feature}</span>
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-dark-accent mt-0.5 flex-shrink-0" />
+                  <span className="text-sm sm:text-base text-dark-text">{feature}</span>
                 </li>
               ))}
             </ul>

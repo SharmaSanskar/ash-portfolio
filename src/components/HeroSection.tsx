@@ -1,6 +1,12 @@
+"use client";
+
 import Image from "next/image";
 
 export default function HeroSection() {
+  const handleResumeClick = () => {
+    window.open('https://drive.google.com/file/d/1_aI3lfKzS9TFy5yLaSXvmQd5gvwfbJQ-/view?usp=sharing', '_blank');
+  };
+
   return (
     <div className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Image Background with Wavy Mask */}
@@ -77,10 +83,18 @@ export default function HeroSection() {
 
             {/* Buttons - come second on mobile */}
             <div className="flex gap-4 text-sm order-2 lg:order-1">
-              <button className="px-6 py-1 rounded-full border-2 border-light-border hover:bg-light-text/10 transition">
+              <a 
+                href="https://www.linkedin.com/in/ashmika-r"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-1 rounded-full border-2 border-light-border hover:bg-light-text/10 transition"
+              >
                 LinkedIn
-              </button>
-              <button className="px-6 py-1 rounded-full border-2 border-light-border hover:bg-light-text/10 transition">
+              </a>
+              <button 
+                className="px-6 py-1 rounded-full border-2 border-light-border hover:bg-light-text/10 transition"
+                onClick={handleResumeClick}
+              >
                 Resume
               </button>
             </div>

@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
-import { FaMicrosoft, FaGoogle, FaFigma } from "react-icons/fa6";
-import { SiHootsuite, SiCanva } from "react-icons/si";
-import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { FaMicrosoft, FaGoogle, FaSlack, FaVideo, FaCalendarAlt, FaEye } from "react-icons/fa";
+import { SiHubspot, SiCanva, SiWix } from "react-icons/si";
+import { MdMovieEdit, MdMonitor } from "react-icons/md";
+import { BiVideo } from "react-icons/bi";
 import {
   Accordion,
   AccordionContent,
@@ -75,19 +76,19 @@ const ExperienceSection = () => {
   ];
 
   const skills = [
-    { name: "HubSpot", icon: SiHootsuite, color: "text-[#FF5C35]" },
-    { name: "MuckRack", icon: MdOutlineRemoveRedEye, color: "text-[#0095A9]" },
+    { name: "HubSpot", icon: SiHubspot, color: "text-[#FF5C35]" },
+    { name: "MuckRack", icon: FaEye, color: "text-[#1DB954]" },
     { name: "Canva", icon: SiCanva, color: "text-[#00C4CC]" },
-    { name: "Meltwater", icon: MdOutlineRemoveRedEye, color: "text-[#0095A9]" },
-    { name: "InShot", icon: FaFigma, color: "text-[#A259FF]" },
-    { name: "Slack", icon: SiHootsuite, color: "text-[#4A154B]" },
-    { name: "CapCut", icon: FaFigma, color: "text-[#A259FF]" },
+    { name: "Meltwater", icon: MdMonitor, color: "text-[#0066CC]" },
+    { name: "InShot", icon: MdMovieEdit, color: "text-[#FF6B6B]" },
+    { name: "Slack", icon: FaSlack, color: "text-[#4A154B]" },
+    { name: "CapCut", icon: BiVideo, color: "text-[#FF3040]" },
     { name: "Google Suite", icon: FaGoogle, color: "text-[#4285F4]" },
     { name: "Microsoft Office", icon: FaMicrosoft, color: "text-[#F25022]" },
-    { name: "OpusClip", icon: FaFigma, color: "text-[#A259FF]" },
-    { name: "Editorial Calendars", icon: SiHootsuite, color: "text-[#F68B1F]" },
-    { name: "Media Monitoring", icon: MdOutlineRemoveRedEye, color: "text-[#0095A9]" },
-    { name: "Wix", icon: FaFigma, color: "text-[#A259FF]" },
+    { name: "OpusClip", icon: FaVideo, color: "text-[#6366F1]" },
+    { name: "Editorial Calendars", icon: FaCalendarAlt, color: "text-[#F59E0B]" },
+    { name: "Media Monitoring", icon: FaEye, color: "text-[#10B981]" },
+    { name: "Wix", icon: SiWix, color: "text-[#0C6EFD]" },
   ];
 
   // Custom AccordionTrigger with bigger arrows

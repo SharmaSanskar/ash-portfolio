@@ -117,7 +117,7 @@ export default function AboutSection() {
       >
         <div className="min-h-screen py-20 mx-auto max-w-6xl px-6">
           {/* Main content grid - no header since animated text serves as title */}
-          <div ref={contentRef} className="pt-16 sm:pt-24">
+          <div ref={contentRef} className="pt-12 md:pt-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
               {/* First paragraph - larger, spans left side */}
               <div className="lg:col-span-7 order-1">
