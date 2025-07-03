@@ -29,98 +29,133 @@ export default function MediaCarousel({ media, coverMedia, projectTitle }: Media
   }, [media, coverMedia]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-2 sm:px-0">
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={10}
-        centeredSlides={true}
-        loop={media.length > 1}
-        initialSlide={initialSlide}
-        navigation={{
-          nextEl: '.swiper-button-next-custom',
-          prevEl: '.swiper-button-prev-custom',
-        }}
-        pagination={{
-          clickable: true,
-          el: '.swiper-pagination-custom',
-        }}
-        keyboard={{
-          enabled: true,
-        }}
-        modules={[Navigation, Pagination, Keyboard]}
-        className="relative"
-      >
-        {media.map((mediaItem, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[500px] overflow-hidden">
-              {isVideo(mediaItem) ? (
-                <video
-                  className="w-full h-full object-contain"
-                  controls
-                  muted
-                  playsInline
-                  preload="metadata"
-                >
-                  <source src={mediaItem} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <Image
-                  src={mediaItem}
-                  alt={`${projectTitle} media ${index + 1}`}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 95vw, 80vw"
-                />
-              )}
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className="w-full max-w-4xl mx-auto overflow-hidden">
+      <div className="relative w-full px-0">
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={0}
+          centeredSlides={true}
+          loop={media.length > 1}
+          initialSlide={initialSlide}
+          navigation={{
+            nextEl: '.swiper-button-next-custom',
+            prevEl: '.swiper-button-prev-custom',
+          }}
+          pagination={{
+            clickable: true,
+            el: '.swiper-pagination-custom',
+          }}
+          keyboard={{
+            enabled: true,
+          }}
+          modules={[Navigation, Pagination, Keyboard]}
+          className="relative w-full"
+        >
+          {media.map((mediaItem, index) => (
+            <SwiperSlide key={index} className="w-full">
+              <div className="relative w-full h-[160px] min-[400px]:h-[200px] sm:h-[280px] md:h-[360px] lg:h-[480px] overflow-hidden rounded-lg">
+                {isVideo(mediaItem) ? (
+                  <video
+                    className="w-full h-full object-contain rounded-lg"
+                    controls
+                    muted
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src={mediaItem} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <Image
+                    src={mediaItem}
+                    alt={`${projectTitle} media ${index + 1}`}
+                    fill
+                    className="object-contain rounded-lg"
+                    sizes="(max-width: 400px) 100vw, (max-width: 768px) 100vw, 80vw"
+                  />
+                )}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-      {/* Custom Navigation Buttons */}
-      {media.length > 1 && (
-        <>
-          <button className="swiper-button-prev-custom absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 bg-black/20 hover:bg-black/40 rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110 backdrop-blur-sm">
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          
-          <button className="swiper-button-next-custom absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 bg-black/20 hover:bg-black/40 rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110 backdrop-blur-sm">
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </>
-      )}
+        {/* Custom Navigation Buttons */}
+        {media.length > 1 && (
+          <>
+            <button className="swiper-button-prev-custom absolute left-2 min-[400px]:left-3 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-6 h-6 min-[400px]:w-7 min-[400px]:h-7 sm:w-9 sm:h-9 bg-black/40 hover:bg-black/60 rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110 backdrop-blur-sm">
+              <svg className="w-3 h-3 min-[400px]:w-3.5 min-[400px]:h-3.5 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <button className="swiper-button-next-custom absolute right-2 min-[400px]:right-3 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-6 h-6 min-[400px]:w-7 min-[400px]:h-7 sm:w-9 sm:h-9 bg-black/40 hover:bg-black/60 rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110 backdrop-blur-sm">
+              <svg className="w-3 h-3 min-[400px]:w-3.5 min-[400px]:h-3.5 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </>
+        )}
+      </div>
 
       {/* Custom Pagination */}
       {media.length > 1 && (
-        <div className="swiper-pagination-custom flex justify-center space-x-2 mt-4 sm:mt-6">
+        <div className="swiper-pagination-custom flex justify-center space-x-1 min-[400px]:space-x-1.5 sm:space-x-2 mt-3 min-[400px]:mt-4 sm:mt-5 pb-2">
           {/* Pagination dots will be generated by Swiper */}
         </div>
       )}
 
       <style jsx>{`
         :global(.swiper-pagination-custom .swiper-pagination-bullet) {
-          width: 8px;
-          height: 8px;
+          width: 6px;
+          height: 6px;
           background: #cbd5e0;
           opacity: 1;
           border-radius: 50%;
           transition: all 0.3s ease;
+          margin: 0 2px;
         }
 
         :global(.swiper-pagination-custom .swiper-pagination-bullet-active) {
           background: #2d3748;
-          transform: scale(1.2);
+          transform: scale(1.3);
         }
 
-        @media (max-width: 640px) {
+        @media (min-width: 400px) {
           :global(.swiper-pagination-custom .swiper-pagination-bullet) {
-            width: 6px;
-            height: 6px;
+            width: 7px;
+            height: 7px;
+            margin: 0 2px;
+          }
+        }
+
+        @media (min-width: 640px) {
+          :global(.swiper-pagination-custom .swiper-pagination-bullet) {
+            width: 8px;
+            height: 8px;
+            margin: 0 3px;
+          }
+        }
+
+        /* Ensure swiper doesn't overflow */
+        :global(.swiper) {
+          overflow: hidden;
+        }
+
+        :global(.swiper-wrapper) {
+          align-items: center;
+        }
+
+        /* Ensure pagination area has enough space */
+        :global(.swiper-pagination-custom) {
+          padding: 8px 0;
+        }
+
+        /* Touch-friendly navigation buttons on mobile */
+        @media (max-width: 640px) {
+          .swiper-button-prev-custom,
+          .swiper-button-next-custom {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
           }
         }
       `}</style>

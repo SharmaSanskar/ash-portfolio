@@ -71,6 +71,7 @@ export default function HeroSection() {
             {/* Name section - comes first on mobile */}
             <div className="text-center lg:text-left order-1 lg:order-2">
               <h2 className="font-display text-3xl lg:text-5xl">
+                <span className="inline-block mx-2 lg:hidden">✢</span>
                 ASHMIKA
                 <span className="inline-block mx-2">✢</span>
               </h2>
