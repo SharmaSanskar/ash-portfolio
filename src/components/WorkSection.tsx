@@ -10,6 +10,7 @@ export interface Project {
   id: string;
   title: string;
   coverMedia: string;
+  media: string[];
   description?: string;
   overview?: string;
   designApproach?: string;
@@ -60,11 +61,11 @@ export default function WorkSection() {
         </h2>
         
         {/* Projects Grid Container */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 grid-rows-4 lg:grid-rows-2 gap-3 sm:gap-4 h-[800px] sm:h-[900px] lg:h-[500px] mb-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-fr gap-3 sm:gap-4 mb-6">
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={`${gridClasses[index]} relative group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-[1.02]`}
+              className={`${gridClasses[index]} relative group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-[1.02] min-h-[180px] sm:min-h-[200px] lg:min-h-[240px]`}
               onClick={() => handleProjectClick(project)}
               onMouseEnter={(e) => {
                 if (isVideo(project.coverMedia)) {
@@ -111,7 +112,7 @@ export default function WorkSection() {
                   />
                 )}
               </div>
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/80 transition-colors duration-300" />
               <div className="absolute inset-0 flex items-center justify-center p-3 sm:p-4">
                 <h3 className="text-white text-sm sm:text-base lg:text-lg font-semibold text-center transform group-hover:scale-105 transition-transform duration-300 drop-shadow-lg leading-tight">
                   {project.title}
@@ -151,11 +152,11 @@ export default function WorkSection() {
             />
           </div>
           <div className="absolute inset-0 bg-emerald-950/80 group-hover:bg-emerald-950/90 transition-colors duration-300" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-6 sm:p-8 text-center">
-            <h3 className="text-white text-2xl sm:text-3xl lg:text-4xl font-semibold transform group-hover:scale-105 transition-transform duration-300 drop-shadow-lg mb-3 sm:mb-4">
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 text-center">
+            <h3 className="text-white text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold transform group-hover:scale-105 transition-transform duration-300 drop-shadow-lg mb-2 sm:mb-3 lg:mb-4">
               Pieces I&apos;ve Written
             </h3>
-            <p className="text-white/90 text-sm sm:text-base lg:text-lg leading-relaxed max-w-4xl transform group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
+            <p className="text-white/90 text-xs sm:text-sm lg:text-base xl:text-lg leading-relaxed max-w-4xl transform group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
             My writing is clear, structured, and always thinking about the person reading it. Whether it&apos;s something emotional or something complex, I break it down without dumbing it down. I&apos;m big on flow, strong on voice, and never afraid to say things simply when simple works best.
             </p>
           </div>

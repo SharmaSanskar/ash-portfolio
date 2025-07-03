@@ -8,13 +8,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ExternalLink, Github, Tag, CheckCircle } from "lucide-react";
-import Image from "next/image";
+import MediaCarousel from "./MediaCarousel";
 
 // Optional: define a Project type
 type Project = {
   id: string;
   title: string;
   coverMedia: string;
+  media: string[];
   description?: string;
   overview?: string;
   designApproach?: string;
@@ -37,18 +38,13 @@ export default function ProjectDetails({
 }: ProjectDetailsProps) {
   if (!project) return null;
 
-  // Helper function to check if media is video
-  const isVideo = (mediaPath: string) => {
-    return mediaPath.endsWith('.mp4') || mediaPath.endsWith('.mov') || mediaPath.endsWith('.webm');
-  };
-
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-[95vw] max-w-sm sm:max-w-2xl lg:!max-w-6xl mx-auto max-h-[90vh] overflow-y-auto border-light-accent/20 p-6 sm:p-8 lg:p-10" style={{ backgroundColor: '#faedcd' }}>
+      <DialogContent className="w-[95vw] max-w-xs sm:max-w-2xl lg:!max-w-6xl mx-auto max-h-[90vh] overflow-y-auto border-light-accent/20 p-4 sm:p-6 lg:p-8" style={{ backgroundColor: '#faedcd' }}>
         <DialogHeader className="space-y-2 sm:space-y-3">
           <div className="flex items-start justify-between">
             <div className="space-y-1 sm:space-y-2 flex-1 min-w-0 pr-2">
-              <DialogTitle className="text-lg sm:text-xl lg:text-2xl font-bold text-dark-accent leading-tight">
+              <DialogTitle className="text-base sm:text-lg lg:text-2xl font-bold text-dark-accent leading-tight">
                 {project.title}
               </DialogTitle>
               <DialogDescription className="text-sm sm:text-base lg:text-lg text-dark-text leading-tight">
@@ -76,34 +72,15 @@ export default function ProjectDetails({
         </DialogHeader>
 
         <div className="space-y-4 sm:space-y-6">
-          <div className="relative w-full overflow-hidden bg-light-accent/10">
-            {isVideo(project.coverMedia) ? (
-              <video
-                className="w-full h-auto"
-                controls
-                muted
-                playsInline
-              >
-                <source src={project.coverMedia} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <div className="relative w-full" style={{ aspectRatio: 'auto' }}>
-                <Image
-                  src={project.coverMedia}
-                  alt={project.title}
-                  width={800}
-                  height={600}
-                  className="w-full h-auto object-contain"
-                  style={{ maxHeight: '50vh' }}
-                />
-              </div>
-            )}
-          </div>
+          <MediaCarousel 
+            media={project.media}
+            coverMedia={project.coverMedia}
+            projectTitle={project.title}
+          />
 
           <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
             {project.liveUrl && (
-              <Button asChild className="flex items-center justify-center gap-2 text-sm bg-dark-accent hover:bg-dark-accent/90 text-light-bg w-full sm:w-auto">
+              <Button asChild className="flex items-center justify-center gap-2 text-sm bg-dark-accent hover:bg-dark-accent/90 text-light-bg w-full sm:w-auto px-4 py-2">
                 <a
                   href={project.liveUrl}
                   target="_blank"
@@ -118,7 +95,7 @@ export default function ProjectDetails({
               <Button
                 variant="outline"
                 asChild
-                className="flex items-center justify-center gap-2 text-sm border-dark-accent/20 text-dark-text hover:bg-dark-accent/5 w-full sm:w-auto"
+                className="flex items-center justify-center gap-2 text-sm border-dark-accent/20 text-dark-text hover:bg-dark-accent/5 w-full sm:w-auto px-4 py-2"
               >
                 <a
                   href={project.githubUrl}
@@ -137,7 +114,7 @@ export default function ProjectDetails({
           {project.overview && (
             <>
               <div className="space-y-2 sm:space-y-3">
-                <h3 className="text-lg sm:text-xl font-semibold text-dark-accent">
+                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-dark-accent">
                   Overview
                 </h3>
                 <p className="text-sm sm:text-base text-dark-text leading-relaxed">
@@ -152,7 +129,7 @@ export default function ProjectDetails({
           {project.designApproach && (
             <>
               <div className="space-y-2 sm:space-y-3">
-                <h3 className="text-lg sm:text-xl font-semibold text-dark-accent">
+                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-dark-accent">
                   Design Approach
                 </h3>
                 <p className="text-sm sm:text-base text-dark-text leading-relaxed">
@@ -165,7 +142,7 @@ export default function ProjectDetails({
           )}
 
           <div className="space-y-2 sm:space-y-3">
-            <h3 className="text-lg sm:text-xl font-semibold text-dark-accent">
+            <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-dark-accent">
               Key Features
             </h3>
             <ul className="space-y-1 sm:space-y-2">
