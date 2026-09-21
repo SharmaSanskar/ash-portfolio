@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaMicrosoft, FaGoogle, FaSlack, FaVideo, FaCalendarAlt, FaEye } from "react-icons/fa";
+import { FaMicrosoft, FaGoogle, FaSlack, FaVideo, FaCalendarAlt, FaEye, FaEnvelopeOpenText } from "react-icons/fa";
 import { SiHubspot, SiCanva, SiWix } from "react-icons/si";
 import { MdMovieEdit, MdMonitor } from "react-icons/md";
 import { BiVideo } from "react-icons/bi";
@@ -16,6 +16,54 @@ const ExperienceSection = () => {
   const experiences = [
     {
       id: "01",
+      period: "Apr 2026 – Present",
+      title: "Marketing Coordinator",
+      company: "Northeastern University, Boston",
+      description:
+        "I'm growing Instagram and LinkedIn for civic engagement programs with real strategy behind each post—averaging 5,000+ views while thinking about platform nuance, posting cadence, and what actually lands. It's part data, part intuition, all about keeping people connected to the work.",
+    },
+    {
+      id: "02",
+      period: "Sep 2025 – Present",
+      title: "Program Assistant",
+      company: "Center for Emerging Markets, D'Amore-McKim School of Business",
+      description:
+        "Translating dense business research into emails and content people actually open (40% open rate across 145,000+ sends). I launched short-form video on the center's channels, grew followers 67%, and turned one-off campaigns into a scalable system—reusable templates, organized workflows, and events that draw 150+ attendees consistently.",
+    },
+    {
+      id: "03",
+      period: "Apr 2026 – May 2026",
+      title: "Predictive Analysis & Donor Strategy Consultant",
+      company: "Universal Promise, Rhode Island",
+      description:
+        "Collaborated on a donor predictive model using logistic regression to help a nonprofit director prioritize outreach. Translated the methodology into clear user prompts and designed presentation materials so staff could actually use it—making data accessible without dumbing it down.",
+    },
+    {
+      id: "04",
+      period: "Jan 2026 – Apr 2026",
+      title: "Marketing & Events Assistant",
+      company: "Community Service & Civic Engagement, Northeastern University",
+      description:
+        "This was the rhythm work: writing weekly newsletters to 6,000+ people, hitting 39–40% open rates every single week, producing events end-to-end, and growing the program following 25% through branded graphics and timing. I learned early that consistency beats perfection.",
+    },
+    {
+      id: "05",
+      period: "Oct 2025 – Feb 2026",
+      title: "PR & Content Strategist",
+      company: "Innovate Tech X, Charlotte, NC",
+      description:
+        "Audited the entire brand messaging and digital presence, then built a content and PR strategy to support a national rebranding. Managed social calendars across TikTok, Instagram, Facebook, and LinkedIn—thinking platform-specific, narrative-led, launch-ready.",
+    },
+    {
+      id: "06",
+      period: "Sep 2025 – Dec 2025",
+      title: "PR & Digital Communications Coordinator",
+      company: "Fourddo (Non-Profit), Boston",
+      description:
+        "Came in as one of two founding comms hires and built the social playbook from scratch—content calendars, posting strategy, the whole thing. Pitched stories to journalists, designed donor-facing decks and toolkits, and helped a scrappy nonprofit find its voice across platforms.",
+    },
+    {
+      id: "07",
       period: "Feb 2025 – May 2025",
       title: "Media Relations Volunteer (Project)",
       company: "Stockhands Horses for Healing",
@@ -23,7 +71,7 @@ const ExperienceSection = () => {
         "Think: nonprofit meets press hustle. I built a custom list of 20+ niche journalists and crafted pitches that actually got read. My press kits? Emotion-led, design-first, and donor-ready. I also cleaned up past comms with a tone audit and left them with templates + takeaways to keep the momentum going.",
     },
     {
-      id: "02",
+      id: "08",
       period: "May 2023 – Apr 2024",
       title: "Head of Public Relations",
       company: "Sophia College, Mumbai",
@@ -31,7 +79,7 @@ const ExperienceSection = () => {
         "I led a full-blown PR refresh for the entire college—rewriting how we spoke to students, faculty, and alumni. I managed a 15+ person media team and turned chaotic channels into a cohesive brand system. Press placements jumped by 30%, and we finally stopped that endless WhatsApp rumor cycle with cleaner, segmented comms.",
     },
     {
-      id: "03",
+      id: "09",
       period: "Oct 2021 – Mar 2023",
       title: "Head of Events Team",
       company: "Kaleidoscope Fest, Sophia College",
@@ -39,7 +87,7 @@ const ExperienceSection = () => {
         "This was the big one: 20,000 attendees, 30+ crew, 12+ new events launched yearly. I ran all logistics—from backstage flow to vendor ops—while helping rebrand the fest with a more Gen Z vibe. My sponsorship decks landed 20+ barter deals, and digital reach? Up by 25% that year.",
     },
     {
-      id: "04",
+      id: "10",
       period: "Jan 2023 – Feb 2023",
       title: "Event Logistics & Marketing Volunteer",
       company: "The Lil Flea Festival",
@@ -50,7 +98,7 @@ const ExperienceSection = () => {
 
   const volunteerExperiences = [
     {
-      id: "05",
+      id: "11",
       period: "Dec 2023 – May 2024",
       title: "Volunteer",
       company: "Welfare of Stray Dogs (Mumbai, India)",
@@ -58,7 +106,7 @@ const ExperienceSection = () => {
         "Helped manage rescues, coordinate adoption events, and support awareness drives—six months of fur, fieldwork, and figuring out how to communicate with both people and puppies.",
     },
     {
-      id: "06",
+      id: "12",
       period: "2021 – 2023",
       title: "NSS Volunteer",
       company: "National Service Scheme (NSS), Sophia College",
@@ -66,7 +114,7 @@ const ExperienceSection = () => {
         "Served consistently for two years on community outreach and social justice projects, including organizing blood donation camps, conducting street plays, and running education drives in underserved areas.",
     },
     {
-      id: "07",
+      id: "13",
       period: "Jan 2025 – Present",
       title: "Tutor",
       company: "826 Boston",
@@ -83,6 +131,7 @@ const ExperienceSection = () => {
     { name: "InShot", icon: MdMovieEdit, color: "text-[#FF6B6B]" },
     { name: "Slack", icon: FaSlack, color: "text-[#4A154B]" },
     { name: "CapCut", icon: BiVideo, color: "text-[#FF3040]" },
+    { name: "Constant Contact", icon: FaEnvelopeOpenText, color: "text-[#1856ED]" },
     { name: "Google Suite", icon: FaGoogle, color: "text-[#4285F4]" },
     { name: "Microsoft Office", icon: FaMicrosoft, color: "text-[#F25022]" },
     { name: "OpusClip", icon: FaVideo, color: "text-[#6366F1]" },
