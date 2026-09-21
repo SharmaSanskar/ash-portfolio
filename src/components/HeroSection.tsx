@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   const handleResumeClick = () => {
-    window.open('https://drive.google.com/file/d/1_aI3lfKzS9TFy5yLaSXvmQd5gvwfbJQ-/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1U7vsfJGieOGTI-CZJVCuhVI7fdoMXIxi/view', '_blank');
   };
 
   return (

@@ -33,7 +33,7 @@ const ExperienceSection = () => {
     {
       id: "03",
       period: "Apr 2026 – May 2026",
-      title: "Predictive Analysis & Donor Strategy Consultant",
+      title: "Predictive Analysis & Donor Strategy Consultant (Project)",
       company: "Universal Promise, Rhode Island",
       description:
         "Collaborated on a donor predictive model using logistic regression to help a nonprofit director prioritize outreach. Translated the methodology into clear user prompts and designed presentation materials so staff could actually use it—making data accessible without dumbing it down.",
@@ -49,10 +49,10 @@ const ExperienceSection = () => {
     {
       id: "05",
       period: "Oct 2025 – Feb 2026",
-      title: "PR & Content Strategist",
+      title: "PR & Content Strategist (Project)",
       company: "Innovate Tech X, Charlotte, NC",
       description:
-        "Audited the entire brand messaging and digital presence, then built a content and PR strategy to support a national rebranding. Managed social calendars across TikTok, Instagram, Facebook, and LinkedIn—thinking platform-specific, narrative-led, launch-ready.",
+        "Audited the entire brand messaging and digital presence, then built a content and PR strategy to support a national rebranding. Built social calendars for TikTok, Instagram, Facebook, and LinkedIn—thinking platform-specific, narrative-led, launch-ready.",
     },
     {
       id: "06",
@@ -60,7 +60,7 @@ const ExperienceSection = () => {
       title: "PR & Digital Communications Coordinator",
       company: "Fourddo (Non-Profit), Boston",
       description:
-        "Came in as one of two founding comms hires and built the social playbook from scratch—content calendars, posting strategy, the whole thing. Pitched stories to journalists, designed donor-facing decks and toolkits, and helped a scrappy nonprofit find its voice across platforms.",
+        "Came in as one of two founding comms hires and helping build the social playbook from scratch—content calendars, posting strategy, the whole thing. Designed donor-facing decks, annual reports, and toolkits, and helped a budding youth advocacy nonprofit find its voice across platforms.",
     },
     {
       id: "07",
